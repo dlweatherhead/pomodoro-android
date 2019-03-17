@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Pomodoro Timer</string>
+    <string name="pomodoro_button_label">Start Timer</string>
 </resources>
