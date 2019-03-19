@@ -2,8 +2,8 @@ package com.github.dlweatherhead.pomodorotimer.utility
 
 import android.os.CountDownTimer
 
-class PomodoroTimerBuilder {
-    fun create(
+open class PomodoroTimerBuilder {
+    open fun create(
         counterStart: Long,
         counterInterval: Long,
         callbacks: PomodoroTimerCallback
