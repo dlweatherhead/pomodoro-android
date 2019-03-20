@@ -1,7 +1,7 @@
 package com.github.dlweatherhead.pomodorotimer
 
 import android.os.CountDownTimer
-import com.github.dlweatherhead.pomodorotimer.utility.PomodoroTimerBuilder
+import com.github.dlweatherhead.pomodorotimer.utility.timer.PomodoroTimerBuilder
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

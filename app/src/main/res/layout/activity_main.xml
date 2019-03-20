@@ -5,7 +5,7 @@
 
         <variable
             name="timeFormatter"
-            type="com.github.dlweatherhead.pomodorotimer.view.TimeFormatUtility" />
+            type="com.github.dlweatherhead.pomodorotimer.utility.TimeFormatUtility" />
 
         <variable
             name="viewModel"

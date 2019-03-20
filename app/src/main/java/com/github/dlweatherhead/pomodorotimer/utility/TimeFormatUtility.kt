@@ -1,4 +1,4 @@
-package com.github.dlweatherhead.pomodorotimer.view
+package com.github.dlweatherhead.pomodorotimer.utility
 
 import java.util.concurrent.TimeUnit
 

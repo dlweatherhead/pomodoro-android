@@ -3,10 +3,11 @@ package com.github.dlweatherhead.pomodorotimer
 import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableLong
-import com.github.dlweatherhead.pomodorotimer.utility.PomodoroTimerBuilder
-import com.github.dlweatherhead.pomodorotimer.utility.PomodoroTimerCallback
+import com.github.dlweatherhead.pomodorotimer.utility.timer.PomodoroTimerBuilder
+import com.github.dlweatherhead.pomodorotimer.utility.timer.PomodoroTimerCallback
 
-class PomodoroTimerViewModel(val builder: PomodoroTimerBuilder) : ViewModel(), PomodoroTimerCallback {
+class PomodoroTimerViewModel(val builder: PomodoroTimerBuilder) : ViewModel(),
+    PomodoroTimerCallback {
 
     val pomodoroLength = 25 * 60 * 1000L
     val counterInterval = 500L

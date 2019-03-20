@@ -4,7 +4,7 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.github.dlweatherhead.pomodorotimer.databinding.ActivityMainBinding
-import com.github.dlweatherhead.pomodorotimer.view.TimeFormatUtility
+import com.github.dlweatherhead.pomodorotimer.utility.TimeFormatUtility
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {

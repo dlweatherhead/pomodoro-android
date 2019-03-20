@@ -1,4 +1,4 @@
-package com.github.dlweatherhead.pomodorotimer.utility
+package com.github.dlweatherhead.pomodorotimer.utility.timer
 
 import org.junit.Before
 import org.junit.Test
