@@ -1,4 +1,4 @@
-package com.github.dlweatherhead.pomodorotimer
+package com.github.dlweatherhead.pomodorotimer.view
 
 import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableBoolean
@@ -9,13 +9,14 @@ import com.github.dlweatherhead.pomodorotimer.utility.timer.PomodoroTimerCallbac
 class PomodoroTimerViewModel(val builder: PomodoroTimerBuilder) : ViewModel(),
     PomodoroTimerCallback {
 
-    val pomodoroLength = 25 * 60 * 1000L
-    val counterInterval = 500L
+    private val timerLength = 25 * 60 * 1000L
+    private val timerInterval = 500L
 
-    val timerText = ObservableLong(pomodoroLength)
+    val timerText = ObservableLong(timerLength)
     val isTimerRunning = ObservableBoolean()
+    val showToastTrigger = ObservableBoolean()
 
-    private val timer by lazy { builder.create(pomodoroLength, counterInterval, this) }
+    private val timer by lazy { builder.create(timerLength, timerInterval, this) }
 
     fun handleTimerButtonClicked() {
         if (isTimerRunning.get()) {
@@ -32,6 +33,7 @@ class PomodoroTimerViewModel(val builder: PomodoroTimerBuilder) : ViewModel(),
     }
 
     override fun timerFinishedCallback() {
+        showToastTrigger.set(!showToastTrigger.get())
         isTimerRunning.set(false)
     }
 }

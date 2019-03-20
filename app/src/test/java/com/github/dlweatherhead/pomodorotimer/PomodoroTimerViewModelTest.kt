@@ -2,6 +2,7 @@ package com.github.dlweatherhead.pomodorotimer
 
 import android.os.CountDownTimer
 import com.github.dlweatherhead.pomodorotimer.utility.timer.PomodoroTimerBuilder
+import com.github.dlweatherhead.pomodorotimer.view.PomodoroTimerViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -90,5 +91,23 @@ class PomodoroTimerViewModelTest {
         viewModel.timerFinishedCallback()
 
         assertEquals(false, viewModel.isTimerRunning.get())
+    }
+
+    @Test
+    fun testTimerFinishCallbackTriggersToastFromFalse() {
+        viewModel.showToastTrigger.set(false)
+
+        viewModel.timerFinishedCallback()
+
+        assertEquals(true, viewModel.showToastTrigger.get())
+    }
+
+    @Test
+    fun testTimerFinishCallbackTriggersToastFromTrue() {
+        viewModel.showToastTrigger.set(true)
+
+        viewModel.timerFinishedCallback()
+
+        assertEquals(false, viewModel.showToastTrigger.get())
     }
 }
