@@ -35,29 +35,60 @@ class PomodoroTimerViewModelTest {
 
     @Test
     fun testConstructionInvokesGetOnBuilder() {
-        viewModel.startTimer()
+        viewModel.handleTimerButtonClicked()
 
         verify(mockPomodoroTimerBuilder).create(25 * 60 * 1000L, 500L, viewModel)
     }
 
     @Test
-    fun testStartTimerInvokesStartOnTimer() {
-        viewModel.startTimer()
+    fun testHandleTimerButtonClickedIsTimerRunningFalseInvokesStartOnTimer() {
+        viewModel.isTimerRunning.set(false)
+
+        viewModel.handleTimerButtonClicked()
 
         verify(mockPomodoroTimer).start()
     }
 
     @Test
-    fun testTimerTickCallbackSetsTimerText() {
-        viewModel.timerTickCallback(12 * 60 * 1000 + 35000)
+    fun testHandleTimerBurronClickedIsTimerRunningTrueInvokesCancelOnTimer() {
+        viewModel.isTimerRunning.set(true)
 
-        assertEquals("12:35", viewModel.timerText.get())
+        viewModel.handleTimerButtonClicked()
+
+        verify(mockPomodoroTimer).cancel()
     }
 
     @Test
-    fun testTimerFinishCallbackSetTimerText() {
+    fun testTimerTickCallbackSetsTimerText() {
+        viewModel.timerTickCallback(1000)
+
+        assertEquals(1000, viewModel.timerText.get())
+    }
+
+    @Test
+    fun testTimerFinishedCallbackSetIsTimerRunningFalse() {
+        viewModel.isTimerRunning.set(true)
+
         viewModel.timerFinishedCallback()
 
-        assertEquals("Finished!", viewModel.timerText.get())
+        assertEquals(false, viewModel.isTimerRunning.get())
+    }
+
+    @Test
+    fun testHandleTimerButtonClickedSetIsTimerRunningTrue() {
+        viewModel.isTimerRunning.set(false)
+
+        viewModel.handleTimerButtonClicked()
+
+        assertEquals(true, viewModel.isTimerRunning.get())
+    }
+
+    @Test
+    fun testTimerFinishCallbackSetIsTimerRunningFalse() {
+        viewModel.isTimerRunning.set(true)
+
+        viewModel.timerFinishedCallback()
+
+        assertEquals(false, viewModel.isTimerRunning.get())
     }
 }

@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.github.dlweatherhead.pomodorotimer.databinding.ActivityMainBinding
+import com.github.dlweatherhead.pomodorotimer.view.TimeFormatUtility
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.viewModel = model
-        binding.startButton.setOnClickListener { model.startTimer() }
+        binding.timeFormatter = TimeFormatUtility()
+        binding.timerButton.setOnClickListener { model.handleTimerButtonClicked() }
     }
 }

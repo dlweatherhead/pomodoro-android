@@ -1,38 +1,36 @@
 package com.github.dlweatherhead.pomodorotimer
 
 import android.arch.lifecycle.ViewModel
-import android.databinding.ObservableField
+import android.databinding.ObservableBoolean
+import android.databinding.ObservableLong
 import com.github.dlweatherhead.pomodorotimer.utility.PomodoroTimerBuilder
 import com.github.dlweatherhead.pomodorotimer.utility.PomodoroTimerCallback
-import java.util.concurrent.TimeUnit
 
 class PomodoroTimerViewModel(val builder: PomodoroTimerBuilder) : ViewModel(), PomodoroTimerCallback {
 
     val pomodoroLength = 25 * 60 * 1000L
     val counterInterval = 500L
 
-    val timerText = ObservableField<String>(convertToTimeDisplay(pomodoroLength))
-    val timer by lazy { builder.create(pomodoroLength, counterInterval, this) }
+    val timerText = ObservableLong(pomodoroLength)
+    val isTimerRunning = ObservableBoolean()
 
-    fun startTimer() {
-        timer.start()
+    private val timer by lazy { builder.create(pomodoroLength, counterInterval, this) }
+
+    fun handleTimerButtonClicked() {
+        if (isTimerRunning.get()) {
+            isTimerRunning.set(false)
+            timer.cancel()
+        } else {
+            isTimerRunning.set(true)
+            timer.start()
+        }
     }
 
     override fun timerTickCallback(millisUntilFinished: Long) {
-        timerText.set(convertToTimeDisplay(millisUntilFinished))
+        timerText.set(millisUntilFinished)
     }
 
     override fun timerFinishedCallback() {
-        timerText.set("Finished!")
-    }
-
-    // TODO: Convert to utility
-    private fun convertToTimeDisplay(milliseconds: Long): String {
-        val minutes = TimeUnit.MILLISECONDS.toMinutes(milliseconds)
-        val totalSeconds = TimeUnit.MILLISECONDS.toSeconds(milliseconds)
-        val minuteSeconds = TimeUnit.MINUTES.toSeconds(minutes)
-
-        // TODO: Extract format
-        return String.format("%02d:%02d", minutes, totalSeconds - minuteSeconds)
+        isTimerRunning.set(false)
     }
 }
