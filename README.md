@@ -1,3 +1,11 @@
 ## Pomodoro Android Application
 
-I wanted to make my own pomodoro app to manage my time better and as an opportunity to practice Android.
+Yup, this is yet another Pomodoro App.
+I made this to practice and learn android development features.
+Below is a list of key tech used in the project.
+
+### What's inside?
+- Kotlin
+- Android Architecture Lifecycle
+- Koin
+- Mockito
