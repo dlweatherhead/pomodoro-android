@@ -12,9 +12,10 @@ class PomodoroTimerViewModel(val builder: PomodoroTimerBuilder) : ViewModel(), P
     val counterInterval = 500L
 
     val timerText = ObservableField<String>(convertToTimeDisplay(pomodoroLength))
+    val timer by lazy { builder.create(pomodoroLength, counterInterval, this) }
 
     fun startTimer() {
-        builder.create(pomodoroLength, counterInterval, this).start()
+        timer.start()
     }
 
     override fun timerTickCallback(millisUntilFinished: Long) {
