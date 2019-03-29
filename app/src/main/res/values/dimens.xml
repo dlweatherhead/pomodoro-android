@@ -2,4 +2,5 @@
 <resources>
     <dimen name="pomodoro_button_text_size">24sp</dimen>
     <dimen name="pomodoro_timer_text_size">64sp</dimen>
+    <dimen name="standard_shadow_elevation">4dp</dimen>
 </resources>
