@@ -1,0 +1,41 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory>
+        <EditTextPreference
+            android:defaultValue="25:00"
+            android:inputType="time"
+            app:key="@string/preference_pomodoro_timer_key"
+            app:summary="@string/preference_pomodoro_timer_length_summary"
+            app:title="@string/preference_pomodoro_timer_length_title" />
+
+        <EditTextPreference
+            android:defaultValue="5:00"
+            android:inputType="time"
+            app:key="@string/preference_short_rest_key"
+            app:summary="@string/preference_pomodoro_short_rest_summary"
+            app:title="@string/preference_pomodoro_short_rest_title" />
+
+        <EditTextPreference
+            android:defaultValue="15:00"
+            android:inputType="time"
+            app:key="@string/preference_long_rest_key"
+            app:summary="@string/preference_pomodoro_long_rest_summary"
+            app:title="@string/preference_pomodoro_long_rest_title" />
+
+        <EditTextPreference
+            android:defaultValue="4"
+            android:inputType="numberDecimal"
+            app:key="@string/preference_pomodoro_count_key"
+            app:summary="@string/preference_pomodoro_count_summary"
+            app:title="@string/preference_pomodoro_count_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory>
+        <Preference
+            app:key="@string/preference_feedback_key"
+            app:summary="@string/preference_feedback_summary"
+            app:title="@string/preference_feedback_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
