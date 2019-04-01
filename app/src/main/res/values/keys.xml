@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="preference_pomodoro_timer_key">preference_pomodoro_timer_key</string>
+    <string name="preference_short_rest_key">preference_short_rest_key</string>
+    <string name="preference_long_rest_key">preference_long_rest_key</string>
+    <string name="preference_pomodoro_count_key">preference_pomodoro_count_key</string>
+    <string name="preference_feedback_key">preference_feedback_key</string>
+</resources>

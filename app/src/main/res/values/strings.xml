@@ -1,7 +1,19 @@
 <resources>
     <string name="app_name">Pomodoro Timer</string>
+    <string name="menu_action_preferences_title">settings</string>
+
     <string name="pomodoro_start_timer_label">Start Timer</string>
     <string name="pomodoro_stop_timer_label">Stop Timer</string>
     <string name="pomodoro_finished_toast_text">"Time to take a break!"</string>
-    <string name="menu_action_preferences_title">settings</string>
+
+    <string name="preference_feedback_title">Send feedback</string>
+    <string name="preference_pomodoro_count_title">Pomodoro Count</string>
+    <string name="preference_pomodoro_long_rest_title">Pomodoro Long Rest Length</string>
+    <string name="preference_pomodoro_short_rest_title">Pomodoro Short Rest Length</string>
+    <string name="preference_pomodoro_timer_length_title">Pomodoro Timer Length</string>
+    <string name="preference_pomodoro_timer_length_summary">Set the length for a pomodoro timer</string>
+    <string name="preference_pomodoro_short_rest_summary">Set the length for the short rest duration</string>
+    <string name="preference_pomodoro_long_rest_summary">Set the length for the long rest duration</string>
+    <string name="preference_pomodoro_count_summary">Set the number of pomodoros before a long rest</string>
+    <string name="preference_feedback_summary">We would be grateful for your feedback for technical issues or feature suggestions</string>
 </resources>
